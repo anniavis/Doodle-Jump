@@ -1,6 +1,7 @@
 import pygame
 import random
 from PLANK import Plank
+from PLANK import BluePlank
 from DOODLER import Doodler
 
 
@@ -116,5 +117,9 @@ class Game:
         """ This method generates planks. """
 
         for i in range(1000):
-            plank = Plank(random.randint(5, 243), 500 - 100 * i - random.randint(40, 100))
+            plank = None
+            if i % 10 == 0:
+                plank = BluePlank(random.randint(5, 243), 500 - 100 * i - random.randint(40, 100))
+            else:
+                plank = Plank(random.randint(5, 243), 500 - 100 * i - random.randint(40, 100))
             self.all_planks.append(plank)
